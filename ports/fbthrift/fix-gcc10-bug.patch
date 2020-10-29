@@ -1,0 +1,14 @@
+diff --git a/thrift/lib/cpp2/transport/rocket/framing/Util.h b/thrift/lib/cpp2/transport/rocket/framing/Util.h
+index 49c3a3d72..83e8f4d70 100644
+--- a/thrift/lib/cpp2/transport/rocket/framing/Util.h
++++ b/thrift/lib/cpp2/transport/rocket/framing/Util.h
+@@ -51,7 +51,8 @@ inline size_t readFrameOrMetadataSize(folly::io::Cursor& cursor) {
+ inline std::pair<uint8_t, Flags> readFrameTypeAndFlagsUnsafe(
+     folly::io::Cursor& cursor) {
+   const uint16_t frameTypeAndFlags = cursor.readBE<uint16_t>();
+-  const uint8_t frameType = frameTypeAndFlags >> Flags::frameTypeOffset();
++//   const uint8_t frameType = frameTypeAndFlags >> Flags::frameTypeOffset();
++  uint8_t frameType = frameTypeAndFlags >> 10;
+   const Flags flags(frameTypeAndFlags & Flags::mask());
+   return {frameType, flags};
+ }
