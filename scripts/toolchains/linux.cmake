@@ -55,3 +55,6 @@ if(NOT _CMAKE_IN_TRY_COMPILE)
     string(APPEND CMAKE_EXE_LINKER_FLAGS_RELEASE_INIT " ${VCPKG_LINKER_FLAGS_RELEASE} ")
 endif()
 endif()
+
+set(CMAKE_C_COMPILER /home/linuxbrew/.linuxbrew/bin/gcc-10)
+set(CMAKE_CXX_COMPILER /home/linuxbrew/.linuxbrew/bin/g++-10)
